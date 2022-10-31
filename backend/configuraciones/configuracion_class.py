@@ -1,4 +1,4 @@
-
+from recursos.db_recursos import db_recursos
 from recursos.db_recursos import db_recursos
 class Configuracion:
     def __init__(self, id) -> None:
@@ -11,3 +11,15 @@ class Configuracion:
             self.recursos.append(recurso)
             return True
         return False
+    
+    def agregar_recursos(self, id_recursos):
+        for id_recurso in id_recursos:
+            for recurso in db_recursos.recursos:
+                if id_recurso == recurso.id:
+                    recurso_configuracion = db_recursos.obtener_recurso(id_recurso)
+                    self.recursos.append(recurso_configuracion)
+    
+    def recorrer_recurso(self):
+        for i in self.recursos:
+            print('id ->', i.id)
+            print('nombre ->', i.nombre)

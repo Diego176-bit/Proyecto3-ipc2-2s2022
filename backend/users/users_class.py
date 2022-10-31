@@ -5,6 +5,9 @@ class User:
         self.direccion = direccion
         self.email = email
         self.password = None
+        self.instancias = []
+        self.instancia_id = []
+        
 
 
     def get_nombre(self):
@@ -27,3 +30,10 @@ class User:
     
     def set_password(self, password):
         self.password = password
+    
+    def agregar_instancia(self, instancia):
+        if not instancia.id in self.instancia_id:
+            self.instancias.append(instancia)
+            self.instancia_id.append(instancia.id)
+            return True
+        return False

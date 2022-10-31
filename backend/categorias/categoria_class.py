@@ -11,3 +11,10 @@ class Categoria:
             self.configuraciones.appende(configuracion)
             return True
         return False
+
+    def agregar_configuracion(self, id_configuraciones):
+        for id_configuracion in id_configuraciones:
+            for configuracion in db_configuraciones.configuraciones:
+                if id_configuracion == configuracion.id:
+                    configuracion_categoria = db_configuraciones.obtener_configuracion(id_configuracion)
+                    self.configuraciones.append(configuracion_categoria)

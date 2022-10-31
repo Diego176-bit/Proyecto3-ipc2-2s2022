@@ -9,3 +9,6 @@ class DbCategorias:
             self.id.append(categoria.id)
             return True
         return False
+
+
+db_categorias = DbCategorias()
