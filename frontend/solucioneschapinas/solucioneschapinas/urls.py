@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from solucioneschapinas.views import inicio_sesion, inicio, instancias
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', inicio_sesion),
+    path('inicio/', inicio, name='inicio'),
+    path('inicio/instancias/', instancias)
 ]

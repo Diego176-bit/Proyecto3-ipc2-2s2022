@@ -1,8 +1,11 @@
 
 from configuraciones.db_configuraciones import db_configuraciones
 class Categoria:
-    def __init__(self, id):
+    def __init__(self, id, nombre, descripcion, carga_trabajo):
         self.id = id
+        self.nombre = nombre
+        self.descripcion = descripcion
+        self.carga_trabajo = carga_trabajo
         self.configuraciones = []
     
     def agregar_configuracion(self, id) -> bool:

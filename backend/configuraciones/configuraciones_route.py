@@ -9,8 +9,8 @@ configuraciones = Blueprint('configuraciones', __name__, url_prefix='/configurac
 def agregar_configuracion():
     body = request.get_json()
     
-    if 'id' in body and 'recursos' in body:
-        configuracion = Configuracion(body['id'])
+    if 'id' in body and 'nombre' in body and 'descripcion' in body and'recursos' in body:
+        configuracion = Configuracion(body['id'], body['nombre'], body['descripcion'])
         configuracion.agregar_recursos(body['recursos'])
         if db_configuraciones.agregar_configuracion(configuracion):
             configuracion.recorrer_recurso()

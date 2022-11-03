@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archivoConfiguraciones>
+   <listaRecursos>
+      <recurso id="RAM">                                  
+         <nombre>Memoria RAM</nombre>
+         <abreviatura>RAM</abreviatura>
+         <metrica>Gb</metrica>
+         <tipo>HARDWARE</tipo>
+         <valorXhora>.75</valorXhora>
+      </recurso>
+      <recurso id="HDD">
+         <nombre>DISCO DURO</nombre>
+         <abreviatura>HDD</abreviatura>
+         <metrica>Gb</metrica>
+         <tipo>Memoria Secuendaria</tipo>
+         <valorXhora>1.5</valorXhora>
+      </recurso>
+      <recurso id="TG">
+         <nombre>Targeta grafica</nombre>
+         <abreviatura>TG</abreviatura>
+         <metrica>Gb</metrica>
+         <tipo>HARDWARE</tipo>
+         <valorXhora>4.5</valorXhora>
+      </recurso>
+      <recurso id="OFFICE">
+         <nombre>OFFICE</nombre>
+         <abreviatura>OFFICE</abreviatura>
+         <metrica>unidad</metrica>
+         <tipo>SOFTWARE</tipo>
+         <valorXhora>2.5</valorXhora>
+      </recurso>
+   </listaRecursos>
+   <listaCategorias>
+      <categoria id="SERVIDOR">
+         <nombre>SERVIDOR</nombre>
+         <descripcion>SERVIDOR</descripcion>
+         <cargaTrabajo>Media/Alta/Baja</cargaTrabajo>
+         <listaConfiguraciones>
+            <configuracion id="COMSEN">
+               <nombre>COMPUTADORA SENCILLA</nombre>
+               <descripcion>COMPUTADORA SENCILLA</descripcion>
+               <recursosConfiguracion>
+                  <recurso id="RAM">2</recurso>
+                  <recurso id="HDD">100</recurso>
+               </recursosConfiguracion>
+            </configuracion>
+            <configuracion id="COMGAM">
+               <nombre>COMPUTADORA GAMING</nombre>
+               <descripcion>COMPUTADORA GAMING</descripcion>
+               <recursosConfiguracion>
+                  <recurso id="RAM">16</recurso>
+                  <recurso id="HDD">1000</recurso>
+                  <recurso id="TG">1000</recurso>
+               </recursosConfiguracion>
+            </configuracion>
+         </listaConfiguraciones>
+      </categoria>
+   </listaCategorias>
+   <listaClientes>
+      <cliente nit="312456789">
+         <nombre>Auxiliar</nombre>
+         <usuario>nombreUsuario</usuario>
+         <clave>1234</clave>
+         <direccion>Guatemala</direccion>
+         <correoElectronico>aux@gmail.com</correoElectronico>
+         <listaInstancias>
+            <instancia id="AAA">
+               <idConfiguracion>COMSEN</idConfiguracion>
+               <nombre>recurso1</nombre>
+               <fechaInicio>08-10-2022</fechaInicio>
+               <estado>VIGENTE/CANCELADA</estado>
+               <fechaFinal>08-11-2022</fechaFinal>
+            </instancia>
+            <instancia id="BBB">
+               <idConfiguracion>COMGAM</idConfiguracion>
+               <nombre>recurso1</nombre>
+               <fechaInicio>08-10-2022</fechaInicio>
+               <estado>VIGENTE</estado>
+               <fechaFinal>08-11-2022</fechaFinal>
+            </instancia>
+         </listaInstancias>
+      </cliente>
+      
+   </listaClientes>
+</archivoConfiguraciones>

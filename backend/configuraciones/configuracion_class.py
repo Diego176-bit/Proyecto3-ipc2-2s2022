@@ -1,8 +1,10 @@
-from recursos.db_recursos import db_recursos
+
 from recursos.db_recursos import db_recursos
 class Configuracion:
-    def __init__(self, id) -> None:
+    def __init__(self, id, nombre, descripcion) -> None:
         self.id = id
+        self.nombre = nombre
+        self.descripcion = descripcion
         self.recursos = []
     
     def agregar_recurso(self, id):

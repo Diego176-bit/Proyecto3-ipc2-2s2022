@@ -1,0 +1,99 @@
+for listaRecrusos in raiz.iter("listaRecursos"):
+            
+        for recurso in listaRecrusos.iter("recurso"):
+            idRecurso = recurso.attrib['id']
+
+            for nombre in recurso.iter("nombre"):
+                nameRec = nombre.text
+                
+            for abreviatura in recurso.iter("abreviatura"):
+                abrev = abreviatura.text
+
+            for metrica in recurso.iter("metrica"):
+                met = metrica.text
+
+            for tipo in recurso.iter("tipo"):
+                type = tipo.text
+
+            for valorXhora in recurso.iter("valorXhora"):
+                valorXh = valorXhora.text
+
+            gestor.addRecurso(idRecurso, nameRec, abrev, met, type,valorXh)
+
+        for listaCategoria in raiz.iter("listaCategorias"):
+            for categoria in listaCategoria.iter("categoria"):
+                idCat = categoria.attrib['id']
+
+            for nombre in listaCategoria.iter("nombre"):
+                nombreCat = nombre.text
+
+            for descripcion in listaCategoria.iter("descripcion"):
+                descrip = descripcion.text
+
+            for cargaTrabajo in listaCategoria.iter("cargaTrabajo"):
+                carga = cargaTrabajo.text
+
+            gestor.addCategoria(idCat, nombreCat, descrip, carga)
+
+            for listaConfiguracion in listaCategoria.iter("listaConfiguraciones"):
+
+                for configuracion in listaConfiguracion.iter("configuracion"):
+                    idConf = configuracion.attrib['id']
+                
+                    for nombreConf in configuracion.iter("nombre"):
+                        nombreConfi = nombreConf.text
+
+                    for descrip in configuracion.iter("descripcion"):
+                        descConf = descrip.text
+
+                    gestor.addConfiguracion(idCat, idConf, nombreConfi, descConf)
+                    for recursosConfiguracion in configuracion.iter("recursosConfiguracion"):
+                        for recConf in recursosConfiguracion.iter("recurso"):
+                            idRecConf = recConf.attrib['id']
+                            recCantidad = recConf.text
+
+                            gestor.addRecursoConf(idCat, idConf, idRecConf,recCantidad)
+
+        for listaClientes in raiz.iter("listaClientes"):
+            for cliente in listaClientes.iter("cliente"):
+                nit = cliente.attrib['nit']
+
+                for nombreCli in cliente.iter("nombre"):
+                    nameCli = nombreCli.text
+
+                for usuario in cliente.iter("usuario"):
+                    user = usuario.text
+
+                for clave in cliente.iter("clave"):
+                    key = clave.text
+
+                for direccion in cliente.iter("direccion"):
+                    dicre = direccion.text
+
+                for correoElectronico in cliente.iter("correoElectronico"):
+                    correo = correoElectronico.text
+
+                gestor.addCliente(nit,nameCli,user,key,dicre,correo)
+
+                for listaInstancia in cliente.iter("listaInstancias"):
+                    for instancia in listaInstancia.iter("instancia"):
+                        idIns = instancia.attrib['id']
+
+                    for idConfiguracion in instancia.iter("idConfiguracion"):
+                        idConfigu = idConfiguracion.text
+
+                    for nombreInstancia in instancia.iter("nombre"):
+                        nombreIns = nombreInstancia.text
+
+                    for fechaInicio in instancia.iter("fechaInicio"):
+                        fechaStart = gestor.getFechaHora(fechaInicio.text)
+
+                    for estado in instancia.iter("estado"):
+                        state = estado.text
+
+                    for fechaFinal in instancia.iter("fechaFinal"):
+                        fechaEnd = gestor.getFechaHora(fechaFinal.text)
+
+                    gestor.addInstancia(nit,idIns,idConfigu,nombreIns,fechaStart,state,fechaEnd)
+
+ 

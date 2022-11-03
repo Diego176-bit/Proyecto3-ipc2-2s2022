@@ -15,5 +15,7 @@ class DbConfiguraciones:
             if configuracion.id == id:
                 return configuracion
         return None    
-    
+    def listar_configuraciones(self):
+        for i in self.configuraciones:
+            print(f'id: {i.id} nombre: {i.nombre}')
 db_configuraciones = DbConfiguraciones()

@@ -12,5 +12,10 @@ class DbUsers:
                 return user
         return None
 
+    def get_user_sesion(self, user_name, password):
+        for user in self.users:
+            if user_name == user.user_name and user.password == password:
+                return user
+        return None
 
 data_base_users = DbUsers() 
